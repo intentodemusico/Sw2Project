@@ -2,13 +2,15 @@ DROP DATABASE IF EXISTS sw2;
 CREATE DATABASE sw2;
 USE sw2;
 
-CREATE TABLE categories (
+CREATE TABLE categories 
+(
     CategoryID INT(11) NOT NULL PRIMARY KEY,
     CategoryName VARCHAR(15) NOT NULL,
     CategoryDescription VARCHAR(50)
 );
 
-CREATE TABLE suppliers (
+CREATE TABLE suppliers 
+(
     SupplierID INT(11) NOT NULL PRIMARY KEY,
     CompanyName VARCHAR(30) NOT NULL,
     ContactName VARCHAR(30),
@@ -23,7 +25,8 @@ CREATE TABLE suppliers (
     HomePage VARCHAR(50)
 );
 
-CREATE TABLE products (
+CREATE TABLE products 
+(
     ProductID INT(11) NOT NULL PRIMARY KEY,
     ProductName VARCHAR(40) NOT NULL,
     SupplierID INT(11),
@@ -37,4 +40,3 @@ CREATE TABLE products (
     FOREIGN KEY (SupplierID) REFERENCES suppliers(SupplierID),
     FOREIGN KEY (CategoryID) REFERENCES categories(CategoryID)
 );
-
