@@ -1,0 +1,138 @@
+[
+    {
+        "name": "ProductID",
+        "dbType": "increments",
+        "htmlType": "number",
+        "validations": "Integer",
+        "searchable": false,
+        "fillable": false,
+        "primary": true,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "ProductName",
+        "dbType": "text",
+        "htmlType": "text",
+        "validations": "",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true
+    },
+    {
+        "name": "SupplierID",
+        "dbType": "integer:unsigned:foreign,suppliers,SupplierID",
+        "htmlType": "number",
+        "validations": "Integer",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true
+    },
+    {
+        "name": "CategoryID",
+        "dbType": "integer:unsigned:foreign,categories,CategoryID",
+        "htmlType": "number",
+        "validations": "Integer",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true
+    },
+    {
+        "name": "QuantityPerUnity",
+        "dbType": "string",
+        "htmlType": "text",
+        "validations": "Integer",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true
+    },
+    {
+        "name": "UnitPrice",
+        "dbType": "float",
+        "htmlType": "text",
+        "validations": "Numeric",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true
+    },
+    {
+        "name": "UnitsInStock",
+        "dbType": "integer",
+        "htmlType": "number",
+        "validations": "Integer",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true
+    },
+    {
+        "name": "UnitsOnOrder",
+        "dbType": "integer",
+        "htmlType": "number",
+        "validations": "Integer",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true
+    },
+    {
+        "name": "ReorderLevel",
+        "dbType": "integer",
+        "htmlType": "number",
+        "validations": "Integer",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true
+    },
+    {
+        "name": "Discontinued",
+        "dbType": "boolean",
+        "htmlType": "checkbox",
+        "validations": "Boolean",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true
+    },
+    {
+        "name": "created_at",
+        "dbType": "timestamp",
+        "htmlType": "date",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "updated_at",
+        "dbType": "timestamp",
+        "htmlType": "date",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "type": "relation",
+        "relation": "mt1,suppliers,SupplierID,SupplierID"
+    }
+]
