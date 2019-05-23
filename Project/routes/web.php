@@ -32,12 +32,12 @@ Route::post(
 );
 
 
-Auth::routes();
+//Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+//Route::get('home', 'HomeController@index');
 
 
-Route::resource('products', 'productsController');
+Route::resource('products', 'ProductsController');
 
 Route::resource('categories', 'categoriesController');
 

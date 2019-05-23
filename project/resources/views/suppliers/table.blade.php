@@ -31,10 +31,10 @@
             <td>{!! $suppliers->Fax !!}</td>
             <td>{!! $suppliers->HomePage !!}</td>
                 <td>
-                    {!! Form::open(['route' => ['suppliers.destroy', $suppliers->id], 'method' => 'delete']) !!}
+                    {!! Form::open(['route' => ['suppliers.destroy', $suppliers->SupplierID], 'method' => 'delete']) !!}
                     <div class='btn-group'>
-                        <a href="{!! route('suppliers.show', [$suppliers->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-                        <a href="{!! route('suppliers.edit', [$suppliers->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
+                        <a href="{!! route('suppliers.show', [$suppliers->SupplierID]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
+                        <a href="{!! route('suppliers.edit', [$suppliers->SupplierID]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
                         {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     </div>
                     {!! Form::close() !!}

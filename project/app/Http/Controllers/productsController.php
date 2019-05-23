@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Response;
 
-class productsController extends AppBaseController
+class ProductsController extends AppBaseController
 {
     /** @var  productsRepository */
     private $productsRepository;
@@ -66,13 +66,13 @@ class productsController extends AppBaseController
     /**
      * Display the specified products.
      *
-     * @param int $id
+     * @param int $ProductID
      *
      * @return Response
      */
-    public function show($id)
+    public function show($ProductID)
     {
-        $products = $this->productsRepository->find($id);
+        $products = $this->productsRepository->findByColumn("ProductID",$ProductID)->first();
 
         if (empty($products)) {
             Flash::error('Products not found');
@@ -86,13 +86,14 @@ class productsController extends AppBaseController
     /**
      * Show the form for editing the specified products.
      *
-     * @param int $id
+     * @param int $ProductID
      *
      * @return Response
      */
-    public function edit($id)
+    public function edit($ProductID)
     {
-        $products = $this->productsRepository->find($id);
+        
+        $products =  $this->productsRepository->findByColumn('ProductID', $ProductID)->first();// \DB::table('Products')->get();//('select * from products where ProductID=1', [1]);  //$   this->productsRepository->find($ProductID);
 
         if (empty($products)) {
             Flash::error('Products not found');
@@ -106,14 +107,14 @@ class productsController extends AppBaseController
     /**
      * Update the specified products in storage.
      *
-     * @param int $id
+     * @param int $ProductID
      * @param UpdateproductsRequest $request
      *
      * @return Response
      */
-    public function update($id, UpdateproductsRequest $request)
+    public function update($ProductID, UpdateproductsRequest $request)
     {
-        $products = $this->productsRepository->find($id);
+        $products = $this->productsRepository->findByColumn('ProductID', $ProductID)->first();;
 
         if (empty($products)) {
             Flash::error('Products not found');
@@ -121,7 +122,7 @@ class productsController extends AppBaseController
             return redirect(route('products.index'));
         }
 
-        $products = $this->productsRepository->update($request->all(), $id);
+        $products = $this->productsRepository->update($request->all(),$ProductID);
 
         Flash::success('Products updated successfully.');
 
@@ -131,15 +132,15 @@ class productsController extends AppBaseController
     /**
      * Remove the specified products from storage.
      *
-     * @param int $id
+     * @param int $ProductID
      *
      * @throws \Exception
      *
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($ProductID)
     {
-        $products = $this->productsRepository->find($id);
+        $products = $this->productsRepository->findByColumn('ProductID', $ProductID)->first();;
 
         if (empty($products)) {
             Flash::error('Products not found');
@@ -147,10 +148,30 @@ class productsController extends AppBaseController
             return redirect(route('products.index'));
         }
 
-        $this->productsRepository->delete($id);
+        $this->productsRepository->delete('ProductID',$ProductID);
 
         Flash::success('Products deleted successfully.');
 
         return redirect(route('products.index'));
     }
+
+    /**
+     * Update the specified products in storage.
+     *
+     * @param int $ProductID
+     * @param int $quantity
+     *
+     * @return Response
+     */
+    public function checkStockAvailable($ProductID, $quantity)
+    {
+        $products = $this->productsRepository->findByColumn('ProductID', $ProductID)->first();;
+
+        if ($products>$quantity) { //wat
+            Flash::error('Disponible');
+
+            return redirect(route('products.index'));
+        }
+    }
+
 }

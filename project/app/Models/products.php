@@ -28,7 +28,7 @@ class products extends Model
     public $table = 'products';
     
 
-    protected $dates = ['deleted_at'];
+//    protected $dates = ['deleted_at'];
 
 
     public $fillable = [
@@ -94,4 +94,9 @@ class products extends Model
     {
         return $this->belongsTo(\App\Models\categories::class, 'CategoryID', 'CategoryID');
     }
+
+    public function checkStockAvailable()
+    {
+    }
+
 }

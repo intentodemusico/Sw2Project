@@ -4,7 +4,7 @@ namespace App\Repositories;
 
 use Illuminate\Container\Container as Application;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Support\Facades\DB;
 
 abstract class BaseRepository
 {
@@ -154,6 +154,14 @@ abstract class BaseRepository
         return $query->find($id, $columns);
     }
 
+
+    public function findByColumn($column , $value)
+    {
+        $query = $this->model->newQuery();
+
+        return $query->where($column, $value);
+    }
+
     /**
      * Update model record for given id
      *
@@ -166,7 +174,9 @@ abstract class BaseRepository
     {
         $query = $this->model->newQuery();
 
-        $model = $query->findOrFail($id);
+        $model = DB::table('products')->where('ProductID',$id)->first();
+        //cómo hago el find sin meterle más parámetros a 
+        //este otro?
 
         $model->fill($input);
 
@@ -182,12 +192,12 @@ abstract class BaseRepository
      *
      * @return bool|mixed|null
      */
-    public function delete($id)
+    public function delete($column,$id)
     {
         $query = $this->model->newQuery();
 
-        $model = $query->findOrFail($id);
+        $model = $query->where($column,$id);
 
-        return $model->delete();
+        return $model->delete($id);
     }
 }

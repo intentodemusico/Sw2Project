@@ -34,6 +34,7 @@ class suppliers extends Model
 
 
     public $fillable = [
+        'SupplierID',
         'CompanyName',
         'ContactName',
         'ContactTitle',

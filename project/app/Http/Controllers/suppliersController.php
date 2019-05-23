@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Response;
 
-class suppliersController extends AppBaseController
+class SuppliersController extends AppBaseController
 {
     /** @var  suppliersRepository */
     private $suppliersRepository;
@@ -66,13 +66,13 @@ class suppliersController extends AppBaseController
     /**
      * Display the specified suppliers.
      *
-     * @param int $id
+     * @param int $SupplierID
      *
      * @return Response
      */
-    public function show($id)
+    public function show($SupplierID)
     {
-        $suppliers = $this->suppliersRepository->find($id);
+        $suppliers = $this->suppliersRepository->find($SupplierID);
 
         if (empty($suppliers)) {
             Flash::error('Suppliers not found');
@@ -86,13 +86,13 @@ class suppliersController extends AppBaseController
     /**
      * Show the form for editing the specified suppliers.
      *
-     * @param int $id
+     * @param int $SupplierID
      *
      * @return Response
      */
-    public function edit($id)
+    public function edit($SupplierID)
     {
-        $suppliers = $this->suppliersRepository->find($id);
+        $suppliers = $this->suppliersRepository->find($SupplierID);
 
         if (empty($suppliers)) {
             Flash::error('Suppliers not found');
@@ -106,14 +106,14 @@ class suppliersController extends AppBaseController
     /**
      * Update the specified suppliers in storage.
      *
-     * @param int $id
+     * @param int $SupplierID
      * @param UpdatesuppliersRequest $request
      *
      * @return Response
      */
-    public function update($id, UpdatesuppliersRequest $request)
+    public function update($SupplierID, UpdatesuppliersRequest $request)
     {
-        $suppliers = $this->suppliersRepository->find($id);
+        $suppliers = $this->suppliersRepository->find($SupplierID);
 
         if (empty($suppliers)) {
             Flash::error('Suppliers not found');
@@ -121,7 +121,7 @@ class suppliersController extends AppBaseController
             return redirect(route('suppliers.index'));
         }
 
-        $suppliers = $this->suppliersRepository->update($request->all(), $id);
+        $suppliers = $this->suppliersRepository->update($request->all(), $SupplierID);
 
         Flash::success('Suppliers updated successfully.');
 
@@ -131,15 +131,15 @@ class suppliersController extends AppBaseController
     /**
      * Remove the specified suppliers from storage.
      *
-     * @param int $id
+     * @param int $SupplierID
      *
      * @throws \Exception
      *
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($SupplierID)
     {
-        $suppliers = $this->suppliersRepository->find($id);
+        $suppliers = $this->suppliersRepository->find($SupplierID);
 
         if (empty($suppliers)) {
             Flash::error('Suppliers not found');
@@ -147,7 +147,7 @@ class suppliersController extends AppBaseController
             return redirect(route('suppliers.index'));
         }
 
-        $this->suppliersRepository->delete($id);
+        $this->suppliersRepository->delete($SupplierID);
 
         Flash::success('Suppliers deleted successfully.');
 

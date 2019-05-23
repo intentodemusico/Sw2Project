@@ -17,6 +17,7 @@ class suppliersRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
+        'SupplierID',
         'CompanyName',
         'ContactName',
         'ContactTitle',
