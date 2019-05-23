@@ -27,8 +27,8 @@ class products extends Model
 
     public $table = 'products';
     
-
-//    protected $dates = ['deleted_at'];
+    protected $primaryKey = 'ProductID';
+    protected $dates = ['deleted_at'];
 
 
     public $fillable = [

@@ -22,7 +22,7 @@ class categories extends Model
     
 
     protected $dates = ['deleted_at'];
-
+    protected $primaryKey = 'CategoryID';
 
     public $fillable = [
         'CategoryName',

@@ -28,13 +28,12 @@ class suppliers extends Model
     use SoftDeletes;
 
     public $table = 'suppliers';
-    
+    protected $primaryKey = 'SupplierID';
 
     protected $dates = ['deleted_at'];
 
 
     public $fillable = [
-        'SupplierID',
         'CompanyName',
         'ContactName',
         'ContactTitle',

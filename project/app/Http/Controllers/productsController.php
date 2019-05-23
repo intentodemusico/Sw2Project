@@ -72,7 +72,7 @@ class ProductsController extends AppBaseController
      */
     public function show($ProductID)
     {
-        $products = $this->productsRepository->findByColumn("ProductID",$ProductID)->first();
+        $products = $this->productsRepository->find($ProductID);//findByColumn("ProductID",$ProductID)->first();
 
         if (empty($products)) {
             Flash::error('Products not found');
@@ -93,7 +93,7 @@ class ProductsController extends AppBaseController
     public function edit($ProductID)
     {
         
-        $products =  $this->productsRepository->findByColumn('ProductID', $ProductID)->first();// \DB::table('Products')->get();//('select * from products where ProductID=1', [1]);  //$   this->productsRepository->find($ProductID);
+        $products =  $this->productsRepository->find($ProductID);//findByColumn('ProductID', $ProductID)->first();// \DB::table('Products')->get();//('select * from products where ProductID=1', [1]);  //$   this->productsRepository->find($ProductID);
 
         if (empty($products)) {
             Flash::error('Products not found');
@@ -114,7 +114,7 @@ class ProductsController extends AppBaseController
      */
     public function update($ProductID, UpdateproductsRequest $request)
     {
-        $products = $this->productsRepository->findByColumn('ProductID', $ProductID)->first();;
+        $products = $this->productsRepository->find($ProductID);//findByColumn('ProductID', $ProductID)->first();;
 
         if (empty($products)) {
             Flash::error('Products not found');
@@ -140,7 +140,7 @@ class ProductsController extends AppBaseController
      */
     public function destroy($ProductID)
     {
-        $products = $this->productsRepository->findByColumn('ProductID', $ProductID)->first();;
+        $products = $this->productsRepository->find($ProductID);//findByColumn('ProductID', $ProductID)->first();;
 
         if (empty($products)) {
             Flash::error('Products not found');
@@ -165,7 +165,7 @@ class ProductsController extends AppBaseController
      */
     public function checkStockAvailable($ProductID, $quantity)
     {
-        $products = $this->productsRepository->findByColumn('ProductID', $ProductID)->first();;
+        $products = $this->productsRepository->find($ProductID);//findByColumn('ProductID', $ProductID)->first();;
 
         if ($products>$quantity) { //wat
             Flash::error('Disponible');
