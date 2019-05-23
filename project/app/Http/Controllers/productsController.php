@@ -155,23 +155,4 @@ class ProductsController extends AppBaseController
         return redirect(route('products.index'));
     }
 
-    /**
-     * Update the specified products in storage.
-     *
-     * @param int $ProductID
-     * @param int $quantity
-     *
-     * @return Response
-     */
-    public function checkStockAvailable($ProductID, $quantity)
-    {
-        $products = $this->productsRepository->find($ProductID);//findByColumn('ProductID', $ProductID)->first();;
-
-        if ($products>$quantity) { //wat
-            Flash::error('Disponible');
-
-            return redirect(route('products.index'));
-        }
-    }
-
 }

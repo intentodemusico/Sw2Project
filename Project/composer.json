@@ -12,7 +12,9 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
-        "laravelcollective/html": "^5.8.0"
+        "laravelcollective/html": "^5.8.0",
+        "infyomlabs/adminlte-templates": "5.8.x-dev",
+        "doctrine/dbal": "~2.3"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
@@ -20,12 +22,10 @@
         "fzaninotto/faker": "^1.4",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^3.0",
-        "phpunit/phpunit": "^7.5",
+        "phpunit/phpunit": "^8.1.5",
         "infyomlabs/laravel-generator": "5.8.x-dev",
-        "infyomlabs/adminlte-templates": "5.8.x-dev",
         "infyomlabs/swagger-generator": "dev-master",
         "appointer/swaggervel": "dev-master",
-        "doctrine/dbal": "~2.3",
         "infyomlabs/generator-builder": "dev-master"
     },  
     "config": {
