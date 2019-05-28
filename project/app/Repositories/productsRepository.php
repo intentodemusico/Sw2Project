@@ -79,8 +79,8 @@ class productsRepository extends BaseRepository
     public function checkQuantityGreaterThanHalf($ProductID, $quantity)
     {
         $products = $this->find($ProductID);//findByColumn('ProductID', $ProductID)->first();;
-        $units=$products->UnitsInStock;
-        if ($units/2 <= $quantity) { //wat
+        $units=$products->UnitsInStock/2;
+        if ($units <= $quantity) { //wat
             return true;//$price;
         }
         else{

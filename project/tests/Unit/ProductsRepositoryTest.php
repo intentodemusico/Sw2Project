@@ -30,7 +30,7 @@ class ProductsRepositoryTest extends TestCase{
 
     }
     /** @test */
-    public function testIndex1()
+    public function it_should_return_the_price_with_or_without_discount()
     {
         $res= $this->productsRepository->discountOnStockSale(6,20);
         //$res= $this->productsRepository->discountOnStockSale(3,20);
@@ -38,9 +38,9 @@ class ProductsRepositoryTest extends TestCase{
         $this->assertEquals($res,$valor);
     }
     /** @test */
-    public function testIndex2()
+    public function it_should_return_true_when_buy_is_made()
     {
-        $res= $this->productsRepository->checkUnitsInStockDecrease(6,150000);
+        $res= $this->productsRepository->checkUnitsInStockDecrease(6,15);
         $this->assertEquals($res,true);
     }
 }
